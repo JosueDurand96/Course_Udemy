@@ -1,3 +1,4 @@
+import 'package:course_flutter_app/product_manager.dart';
 import 'package:flutter/material.dart';
 
 main() =>runApp(MyApp());
@@ -7,7 +8,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<String> _products = ['Lista de Comida'];
+
 
   @override
   Widget  build(BuildContext context) {
@@ -18,39 +19,8 @@ class _MyAppState extends State<MyApp> {
             child: Text('HOLA WEY'),
           ),
         ),
-        body: ListView(
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.all(10.0),
-              child: RaisedButton(
-                onPressed: (){
-                  setState(() {
-                    _products.add('Avanzado Food tester');
-                    print(_products);
-                  });
+        body: ProductManager(),
 
-                },
-                child: Text('Agregar Producto'),
-              ),
-            ),
-            Column(
-              children: _products
-              .map(
-                (element)=>Card(
-                  child: Column(
-                    children: <Widget>[
-                      Image.asset('assets/food.jpg'),
-                      Text('Comida Rica xD!'),
-                    ],
-                  ),
-                ),
-              )
-              .toList(),
-            ),
-
-
-          ],
-        ),
       ),
     );
   }
